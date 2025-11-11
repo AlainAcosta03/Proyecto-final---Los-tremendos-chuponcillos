@@ -27,9 +27,15 @@ struct PantallaPrincipal: View{
                     ubicacion: proveedor_ubicacion.ubicacion_actual)
                     ){
                     if let porcentaje = pista.calcular_porcentaje(ubicacion: proveedor_ubicacion.ubicacion_actual){
+                        Text("Distancia en porcentaje \(porcentaje)")
                         switch(porcentaje){
                             case 1...10:
-                                Text("Te estas quemando")
+                                NavigationLink{
+                                    Text("Esta es la pantalla de la pista. ")
+                                } label: {
+                                    Text("Puchopicame para ir a la pista \(pista.id)")
+                                }
+                                .buttonStyle(.plain)
                             case 11...20:
                                 Text("Te estas acercando")
                             case 21...30:
