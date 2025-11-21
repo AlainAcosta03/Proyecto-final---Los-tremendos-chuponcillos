@@ -12,20 +12,21 @@ struct SelectorPantallaPista: View {
     @State var pista_actual: Pista? = nil
     
     var body: some View {
-        Text("")
-            .onAppear{
-                obtener_pista()
+            Text("")
+                .onAppear{
+                    obtener_pista()
+                }
+            
+            switch pista_actual?.cuerpo{
+                case let de_informacion as PistaInformacion:
+                    PantallaPistaInformacion(cuerpo_pista: de_informacion)
+                    
+                case let de_interaccion as PistaInteractuable:
+                    PantallaPistaInteractuable(cuerpo_pista: de_interaccion)
+                default:
+                    Text("Aqui no ha nada")
             }
         
-        switch pista_actual?.cuerpo{
-            case let de_informacion as PistaInformacion:
-                PantallaPistaInformacion(cuerpo_pista: de_informacion)
-                
-            case let de_interaccion as PistaInteractuable:
-                Text("Es una pista con botoncitos.")
-            default:
-                Text("Aqui no ha nada")
-        }
     }
     
     func obtener_pista(){

@@ -6,58 +6,112 @@
 //
 import SwiftUI
 
-struct PantallaPrincipal: View{
+struct PantallaPrincipal: View {
     @State var proveedor_ubicacion = ServicioUbicacion()
+    @State var cambiarAHongo: Bool = false
+    @State var capturarAHongo_2: Bool = false
+    @State var juegoTerminado: Bool = false
     
-    
-    var body: some View{
-        NavigationStack{
-            ForEach(pistas){ pista in
-                if(pista.puede_ser_recogida(
-                    ubicacion: proveedor_ubicacion.ubicacion_actual)
-                    ){
-                    NavigationLink{
-                        Text("Esta es la pantalla de la pista. ")
-                    } label: {
-                        Text("Puchopicame para ir a la pista \(pista.id)")
-                    }
-                    .buttonStyle(.plain)
+    var body: some View {
+        if juegoTerminado {
+            VStack {
+                Text("¡Juego Terminado!")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding()
+                
+                Button("Reiniciar Juego") {
+                    juegoTerminado = false
+                    cambiarAHongo = false
+                    capturarAHongo_2 = false
                 }
-                else if(pista.esta_en_rango(
-                    ubicacion: proveedor_ubicacion.ubicacion_actual)
-                    ){
-                    if let porcentaje = pista.calcular_porcentaje(ubicacion: proveedor_ubicacion.ubicacion_actual){
-                        Text("Distancia en porcentaje \(porcentaje)")
-                        switch(porcentaje){
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.black.opacity(0.7))
+            .foregroundColor(.white)
+            .edgesIgnoringSafeArea(.all)
+        } else {
+            if cambiarAHongo {
+                VistaCamraHongo()
+            } else {
+                VistaCamra()
+            }
+
+            NavigationStack {
+                ForEach(pistas) { pista in
+                    if pista.puede_ser_recogida(ubicacion: proveedor_ubicacion.ubicacion_actual) {
+                        NavigationLink {
+                            Text("Esta es la pantalla de la pista.")
+                        } label: {
+                            Text("Púchame para ir a la pista \(pista.id)")
+                                .padding()
+                                .background(Color.red)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                        .buttonStyle(.borderedProminent)
+                    } else if pista.esta_en_rango(ubicacion: proveedor_ubicacion.ubicacion_actual) {
+                        if let porcentaje = pista.calcular_porcentaje(ubicacion: proveedor_ubicacion.ubicacion_actual) {
+                            Text("Distancia en porcentaje \(porcentaje)")
+
+                            switch porcentaje {
                             case 1...10:
-                                NavigationLink{
-                                    Text("Esta es la pantalla de la pista. ")
+                                NavigationLink {
+                                    ZStack {
+                                        Toggle(isOn: $capturarAHongo_2) {
+                                            Text("Captura Al Gentari")
+                                        }
+                                    }
+                                    .containerBackground(Color(hue: 0.122, saturation: 0.379, brightness: 1.0), for: .navigation)
+                                    .foregroundColor(Color.black)
                                 } label: {
-                                    Text("Puchopicame para ir a la pista \(pista.id)")
+                                    Text("Púchame para ir a la pista \(pista.id)")
+                                        .padding()
+                                        .background(Color.red)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(10)
                                 }
                                 .buttonStyle(.plain)
                             case 11...20:
-                                Text("Te estas acercando")
+                                Text("Te estás acercando")
+                                    .padding()
+                                    .background(Color(hue: 0.1, saturation: 0.911, brightness: 0.997))
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
                             case 21...30:
-                                Text("Estas acercandote")
+                                Text("Estás acercándote")
+                                    .padding()
+                                    .background(Color(hue: 0.315, saturation: 0.773, brightness: 1.0))
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
                             default:
                                 Text("Muy lejos")
+                                    .padding()
+                                    .background(Color(hue: 0.554, saturation: 0.615, brightness: 1.0))
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                            }
                         }
+                    } else {
+                        Text("NO se puede obtener la distancia, comprueba tu conexión con el GPS")
                     }
                 }
-                
-                
-                else {
-                    Text("NO se puede obtener la distancia, comprueba tu conexion con el gps")
-                }
-
-                
+                .containerBackground(Color(hue: 0.122, saturation: 0.379, brightness: 1.0), for: .navigation)
+                .foregroundColor(Color.black)
             }
         }
     }
 }
 
-#Preview {
-    PantallaPrincipal()
-}
 
+
+
+/*
+.containerBackground(LinearGradient(
+    colors: [Color.yellow, Color.orange], startPoint: .bottom, endPoint: .top
+), for: .navigation)
+*/

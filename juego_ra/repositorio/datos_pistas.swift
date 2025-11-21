@@ -24,15 +24,43 @@ let pistas = [
         ),
         id: "pista_2",
         cuerpo: PistaInteractuable(
-            informacion: "Texto de prueba para la pantalla interactuable",
+            informacion: "Texto de prueba para la pantalla interactuable 2",
             interacciones: [
                 Boton(
-                    mensaje: "Puchopicame para ir a la pista 1",
-                    conecta_con_pista: "pista_1")
+                    mensaje: "Puchopicame para ir a la pista 2",
+                    conecta_con_pista: "pista_2")
+            ]
+        )
+    ),
+    Pista(
+        ubicacion: CLLocation(
+            latitude: 31.74224848769289,
+            longitude: -106.432376911223
+        ),
+        id: "pista_3",
+        cuerpo: PistaInteractuable(
+            informacion: "Texto de prueba para la pantalla interactuable 3",
+            interacciones: [
+                Boton(
+                    mensaje: "Puchopicame para ir a la pista 3",
+                    conecta_con_pista: "pista_3")
+            ]
+        )
+    ),
+    Pista(
+        ubicacion: CLLocation(
+            latitude: 31.742126375508825,
+            longitude: -106.43231309354812
+        ),
+        id: "pista_4",
+        cuerpo: PistaInteractuable(
+            informacion: "Texto de prueba para la pantalla interactuable 4",
+            interacciones: [
+                Boton(
+                    mensaje: "Puchopicame para ir a la pista 4",
+                    conecta_con_pista: "pista_4")
             ]
         )
     )
 ]
-
-
 
