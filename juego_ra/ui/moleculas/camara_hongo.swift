@@ -17,7 +17,7 @@ struct VistaCamraHongo: View {
                 CamaraPantallita(capa_sesion: servicio_camara.obtener_previsualizacion_camara())
                     .ignoresSafeArea()
             }
-            Image("hongo").resizable()
+            Image("hongo").resizable().frame(width: 500, height: 500)
         }
         .onAppear {
             servicio_camara.iniciar_session()

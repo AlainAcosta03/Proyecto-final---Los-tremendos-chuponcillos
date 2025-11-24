@@ -13,7 +13,7 @@ struct juego_raApp: App {
     
     var body: some Scene {
         WindowGroup {
-            PantallaPrincipal()
+            pantalla_inicio()
                 .environment(controlador_juego)
         }
     }

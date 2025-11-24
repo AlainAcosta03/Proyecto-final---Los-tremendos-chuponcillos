@@ -17,7 +17,7 @@ protocol CuerpoPista{
 
 struct PistaInformacion: CuerpoPista{
     var tipo = TiposDePista.informacion
-    
+    var pistaCapturada: Bool = false
     var informacion: String
 }
 
@@ -25,7 +25,7 @@ struct PistaInteractuable: CuerpoPista{
     var tipo = TiposDePista.interactiva
     
     var informacion: String
-    
+    var pistaCapturada: Bool = false
     var interacciones: [Boton]
 }
 
