@@ -28,5 +28,5 @@ struct PantallaPistaInteractuable: View {
 
 #Preview {
     PantallaPistaInteractuable(cuerpo_pista: PistaInteractuable(informacion: "Texto vacio", interacciones: [Boton(mensaje: "Mensaje de boton", conecta_con_pista: "pista_1")])).environment(ControladorJuego())
-
+    
 }

@@ -2,32 +2,42 @@
 //  pistas.swift
 //  juego_ra
 //
-//  Created by Jadzia Gallegos on 05/11/25.
+//  Created by alumno on 11/24/25.
 //
+
 import CoreLocation
 
 let pistas = [
     Pista(
         ubicacion:
-            CLLocation(latitude: 31.74249399834499, longitude: -106.43208805090772),
+            CLLocation(latitude: 31.743008, longitude: -106.432851),
         id: "pista_1",
-        cuerpo: PistaInformacion(informacion: "Texto para Hongo 1"),
+        descripcion: "Podría estar evadiendo impuestos cerca del banco.",
+        cuerpo: PistaInformacion(informacion: "Encontraste a Cordy Salinas, el evasor de impuestos."),
     ),
     
     Pista(
-        ubicacion: CLLocation(latitude: 31.74205192244658,longitude: -106.43238899466401),
+        ubicacion: CLLocation(latitude: 31.742568,longitude: -106.432776),
         id: "pista_2",
-        cuerpo: PistaInformacion(informacion: "Texto Para Hongo 2")
+        descripcion: "Podría estar pateando vagabundos cerca del edificio B",
+        cuerpo: PistaInformacion(informacion: "Encontraste a Ramiro Ramirez, el pateador de vagabundos.")
     ),
     Pista(
-        ubicacion: CLLocation(latitude: 31.74224848769289,longitude: -106.432376911223),
+        ubicacion: CLLocation(latitude: 31.742055,longitude: -106.433385),
         id: "pista_3",
-        cuerpo: PistaInformacion(informacion: "Texto Para Hongo 3")
+        descripcion: "Pudo haber sido pateado cerca del edificio A",
+        cuerpo: PistaInformacion(informacion: "Encontraste a Papu Papuncio, el vagabundo.")
     ),
     Pista(
-        ubicacion: CLLocation(latitude: 31.742126375508825,longitude: -106.43231309354812),
+        ubicacion: CLLocation(latitude: 31.742951,longitude: -106.432457),
         id: "pista_4",
-        cuerpo: PistaInformacion(informacion: "Texto Para Hongo 4")
+        descripcion: "Podría estar comiendo dumplings cerca de la cafeteria",
+        cuerpo: PistaInformacion(informacion: "Encontraste a K-Bron James, el guerrero dragón.")
     )
 ]
 
+//31.742063695467262, -106.43249267469089
+
+
+
+//31.742951, -106.432457

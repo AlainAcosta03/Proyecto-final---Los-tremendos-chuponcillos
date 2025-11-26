@@ -2,7 +2,7 @@
 //  pista.swift
 //  juego_ra
 //
-//  Created by Jadzia Gallegos on 05/11/25.
+//  Created by alumno on 11/24/25.
 //
 
 import CoreLocation
@@ -10,8 +10,9 @@ import CoreLocation
 struct Pista: Identifiable{
     let ubicacion: CLLocation
     var distancia_minima: Double = 5.0
-    var distancia_maxima: Double = 100.0
+    var distancia_maxima: Double = 120.0
     let id: String
+    let descripcion: String
     var cuerpo: PistaInformacion
     
     func calcular_porcentaje(ubicacion: CLLocation?) -> Double? {
@@ -23,7 +24,6 @@ struct Pista: Identifiable{
                 let porcentaje = (distancia_a_la_pista - distancia_minima) * 100 /
                 (distancia_maxima - distancia_minima)
                 
-                // Asegurar que el valor esté entre 0 y 100
                 return max(0, min(100, porcentaje))
     }
     
@@ -56,3 +56,5 @@ struct Pista: Identifiable{
     }
 
 }
+
+

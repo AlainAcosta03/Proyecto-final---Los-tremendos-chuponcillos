@@ -2,7 +2,7 @@
 //  juego_raApp.swift
 //  juego_ra
 //
-//  Created by Jadzia Gallegos on 05/11/25.
+//  Created by alumno on 11/24/25.
 //
 
 import SwiftUI
